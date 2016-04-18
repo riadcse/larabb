@@ -15,3 +15,6 @@ storage/
 
 # PhpStorm .idea's
 .idea/
+
+# Composer Lock
+composer.lock
