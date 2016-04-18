@@ -14,21 +14,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username', 100)->unique();
+            $table->string('email', 150)->unique();
             $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->boolean('is_activated')->default(0);
+            $table->text('bio')->nullable();
+            $table->dateTime('joined')->nullable();
+            $table->dateTime('last_seen')->nullable();
+            $table->integer('topic_count')->unsigned()->default(0);
+            $table->integer('post_count')->unsigned()->default(0);
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::drop('users');
     }
 }

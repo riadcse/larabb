@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "larabb/larabb",
+    "description": "Delightfully simple forum software built with Laravel",
+    "keywords": ["forum", "bulletin board"],
     "license": "MIT",
     "type": "project",
     "require": {
