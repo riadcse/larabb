@@ -13,19 +13,17 @@
 
 // Home Page
 Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 // User Authentication/Registration
-Route::get('login', 'AuthController@login');
-Route::get('logout', 'AuthController@logout');
-Route::get('register', 'AuthController@register');
-Route::get('confirm-email/{confirmation_code}', 'AuthController@confirmEmail');
-
+Route::group(['namespace' => 'Auth'], function() {
+    Route::get('login', 'AuthController@login');
+    Route::get('logout', 'AuthController@logout');
+    Route::get('register', 'AuthController@register');
+    Route::get('confirm-email.{confirmation_code}', 'AuthController@confirmEmail');
+});
+    
 // User Profile
-Route::get('user/{username}', 'UsersController@getProfile');
-Route::get('user/{username}/topics', 'UsersController@getUserTopics');
-Route::get('user/{username}/replies', 'UsersController@getUserReplies');
-
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::get('user.{username}', 'UsersController@getProfile');
+Route::get('user.{username}.topics', 'UsersController@getUserTopics');
+Route::get('user.{username}.replies', 'UsersController@getUserReplies');
