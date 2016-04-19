@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Larabb\Events;
 
 abstract class Event
 {
