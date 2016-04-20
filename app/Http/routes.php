@@ -27,3 +27,5 @@ Route::group(['namespace' => 'Auth'], function() {
 Route::get('user.{username}', 'UsersController@getProfile');
 Route::get('user.{username}.topics', 'UsersController@getUserTopics');
 Route::get('user.{username}.replies', 'UsersController@getUserReplies');
+
+Route::auth();
