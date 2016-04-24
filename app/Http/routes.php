@@ -22,6 +22,11 @@ Route::group(['namespace' => 'Auth'], function() {
     Route::get('register', 'AuthController@register');
     Route::get('confirm-email.{confirmation_code}', 'AuthController@confirmEmail');
 });
+
+// Topics/Posts
+Route::get('topic.{id}', 'TopicsController@view');
+Route::get('topic.create', 'TopicsController@create');
+Route::post('topic.create', 'TopicsController@create');
     
 // User Profile
 Route::get('user.{username}', 'UsersController@getProfile');
