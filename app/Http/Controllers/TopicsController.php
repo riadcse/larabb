@@ -2,19 +2,18 @@
 
 namespace Larabb\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Larabb\Http\Requests;
+use Larabb\Topic;
 
 class TopicsController extends Controller
 {
-    public function create($topic)
+    public function create()
     {
         return view('topics.create');
     }
     
     public function view($topic)
     {
-        return view('topics.view', ['topic' => Topic::findTopic($topic)]);
+        return view('topics.view', ['topic' => $topic]);
     }
 }

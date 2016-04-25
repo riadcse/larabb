@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of LaraBB <http://larabb.org>
- *
- * (c) Jason Clemons <jason@larabb.org>
- *
- * For the full copyright and license information, please see
- * the LICENSE file distributed with this source code
- */
 
 namespace Larabb\Http\Controllers\Auth;
 
