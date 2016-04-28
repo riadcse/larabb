@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Larabb\Http\Requests;
 
 use Larabb\Forum;
-use Larabb\Thread;
+use Larabb\Topic;
 use Larabb\Reply;
 
 class ForumController extends Controller
@@ -62,19 +62,19 @@ class ForumController extends Controller
     public function store(Request $request)
     {
         (new Forum($request->all))->save();
-        return redirect(); // redirect to board/thread
+        return redirect(); // redirect to board/topic
     }
 
     /**
      * Update a resource
      * 
-     * @param Thread $thread
+     * @param Topic $thread
      * @return \Illuminate\Http\Response 
      */
-    public function update(Thread $thread)
+    public function update(Topic $thread)
     {
-        (new Thread($thread))->save();
-        return redirect(); // redirect to board/thread
+        (new Topic($thread))->save();
+        return redirect(); // redirect to board/topic
     }
 
     /**
