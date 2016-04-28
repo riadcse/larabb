@@ -4,6 +4,7 @@ namespace Larabb\Http\Controllers;
 
 use Larabb\Http\Requests;
 use Larabb\Topic;
+use Larabb\Reply;
 
 class TopicsController extends Controller
 {

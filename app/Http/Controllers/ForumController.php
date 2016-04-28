@@ -13,11 +13,17 @@ use Larabb\Reply;
 class ForumController extends Controller
 {
     /**
+     * @var Topic 
+     */
+    protected $topics;
+    
+    /**
      * Initialize the forum
      */
-    public function __construct()
+    public function __construct(Topic $topics)
     {
         $this->middleware('auth');
+        $this->topics = $topics;
     }
 
     /**
@@ -27,7 +33,8 @@ class ForumController extends Controller
      */
     public function index()
     {
-        return view('forum.index');
+        $topics = $this->topics->latest()->paginate(25);
+        return view('forum.index', compact('topics'));
     }
 
     /**
