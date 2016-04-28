@@ -17,7 +17,7 @@ class ForumController extends Controller
      */
     public function __construct()
     {
-        // something
+        $this->middleware('auth');
     }
 
     /**
