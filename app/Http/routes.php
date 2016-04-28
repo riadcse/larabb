@@ -12,18 +12,6 @@
 */
 
 // Home Page
-Route::get('', 'HomeController@index');
-Route::get('home', 'HomeController@index');
-
-// Topics/Replies
-Route::get('topic/{id}', 'TopicsController@view');
-Route::get('topic/create', 'TopicsController@create');
-Route::post('topic/create', 'TopicsController@create');
-Route::post('reply/create', 'RepliesController@create');
-    
-// User Profile
-Route::get('user/{username}', 'UsersController@getProfile');
-Route::get('user/{username}/topics', 'UsersController@getUserTopics');
-Route::get('user/{username}/replies', 'UsersController@getUserReplies');
+Route::get('/', 'ForumController@index');
 
 Route::auth();
