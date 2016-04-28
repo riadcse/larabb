@@ -20,6 +20,13 @@ class AuthController extends Controller
     protected $redirectTo = '/';
 
     /**
+     * Protect the admin dashboard from non-admins!
+     * 
+     * @var string
+     */
+    protected $guard = 'admin';
+
+    /**
      * Create a new authentication controller instance.
      *
      * @return void

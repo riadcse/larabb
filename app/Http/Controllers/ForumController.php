@@ -14,8 +14,6 @@ class ForumController extends Controller
 {
     /**
      * Initialize the forum
-     * 
-     * @return void
      */
     public function __construct()
     {
