@@ -23,4 +23,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    /**
+     * The users' topics that they have started
+     * 
+     * @return array
+     */
+    public function topics()
+    {
+        return $this->hasMany('Larabb\Topic');
+    }
+
+    /**
+     * The users' replies to other topics
+     * 
+     * @return array
+     */
+    public function replies()
+    {
+        return $this->hasMany('Larabb\Reply');
+    }
 }

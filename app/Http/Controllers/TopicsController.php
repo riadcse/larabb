@@ -12,7 +12,7 @@ class TopicsController extends Controller
         return view('topics.create');
     }
     
-    public function view($topic)
+    public function view(Topic $topic)
     {
         return view('topics.view', ['topic' => $topic]);
     }
