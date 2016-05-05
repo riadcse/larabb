@@ -5,7 +5,7 @@
 @section('content')
 	<div class="container">
 		<div class="btn-group pull-right" role="group" aria-label="...">
-			<a href="/board/{{ $board->id }}/newtopic" class="btn btn-success"><i class="fa fa-plus"></i> Create</a>
+			<a href="{{ url('/topic/create?board=' . $board->id) }}" class="btn btn-success"><i class="fa fa-plus"></i> Create Topic</a>
 		</div>
 		<h3>{{ $board->name }}</h3>
 		<p>{{ $board->description }}</p>
@@ -13,7 +13,7 @@
 		<ul class="list-group">
 		@foreach ($topics as $topic)
 			<li class="list-group-item">
-				<a href="/topic/{{ $topic->id }}">{{ $topic->title }}</a>
+				<a href="{{ url('/topic/' . $topic->id) }}">{{ $topic->title }}</a>
 			</li>
 		@endforeach
 		</ul>

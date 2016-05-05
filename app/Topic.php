@@ -12,6 +12,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Reply;
+use App\User;
 
 class Topic extends Model
 {
@@ -32,13 +33,6 @@ class Topic extends Model
 
     public function user()
     {
-    	$this->belongsTo('App\User');
-    }
-
-    public function createTopic(Topic $topic, $user)
-    {
-    	$topic->user_id = $user;
-    	
-    	return $this->topics()->save($topic);
+    	return $this->belongsTo(User::class);
     }
 }

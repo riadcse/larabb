@@ -11,11 +11,24 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 use App\Topic;
 use App\Reply;
 
 class TopicsController extends Controller
 {
+    /**
+     * Create a new controller instance
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
+
     /**
      * List all of the topics from a given board
      *
@@ -29,6 +42,16 @@ class TopicsController extends Controller
     }
     
     /**
+     * Show the 'create topic' view
+     *
+     * @return \Illuminate\Request
+     */
+    public function create(Request $request)
+    {
+        return view('topics.create');
+    }
+
+    /**
      * Show a given topic
      *
      * @return \Illuminate\Request
@@ -41,18 +64,25 @@ class TopicsController extends Controller
     }
 
     /**
-     * Show the 'create topic' view
+     * Store the new topic
      *
      * @return \Illuminate\Request
      */
-    public function create()
-    {
-        return view('topics.create');
-    }
-
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'board_id' => 'required|integer',
+            'title' => 'required|max:150',
+            'body' => 'required|max:66000'
+        ]);
+
+        $request->user()->topics()->create([
+            'board_id' => $request->board,
+            'title' => $request->title,
+            'body' => $request->body
+        ]);
+
+        return redirect('/');
     }
 
     /**
@@ -62,7 +92,7 @@ class TopicsController extends Controller
      */
     public function edit($id)
     {
-        return view('topics.edit', compact('topic'));
+        return view('topics.edit');
     }
 
     /**

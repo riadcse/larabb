@@ -1,19 +1,29 @@
 @extends('layouts.app')
 
+@section('page-title', 'Create Topic')
+
 @section('content')
 <div class="container">
-	<form action="/topic/create" method="post">
+@if (count($errors) > 0)
+	<div class="alert alert-danger">
+		<ul>
+		@foreach ($errors->all() as $error)
+			<li>{{ $error }}</li>
+		@endforeach
+		</ul>
+	</div>
+@endif
+	<form action="{{ url('/topic/create') }}" method="post">
 		{{ csrf_field() }}
-
 		<div class="form-group">
 			<label for="title" class="control-label">Title</label>
-			<input type="text" name="title" id="topic-title" class="form-control" placeholder="Title...">
+			<input type="text" name="title" id="topic-title" class="form-control" value="{{ old('title') }}" placeholder="Title...">
 		</div>
 		<div class="form-group">
 			<label for="body" class="control-label">Body</label>
-			<textarea name="body" class="form-control" placeholder="Body..."></textarea>
+			<textarea name="body" rows="8" class="form-control" placeholder="Body...">{{ old('body') }}</textarea>
 		</div>
-		<button class="btn btn-primary" type="submit">Post</button>
+		<button class="btn btn-success" type="submit"><i class="fa fa-plus"></i> Create</button>
 	</form>
 </div>
 @stop

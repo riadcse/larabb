@@ -5,7 +5,7 @@
 @section('content')
 	<div class="container">
 		<h2>{{ $topic->title }}</h2>
-		<p>{{ $topic->body }}</p>
+		<p>{!! nl2br(e($topic->body)) !!}</p>
 	    <hr>
 	@foreach ($topic->replies as $reply)
 		<div class="well well-md">
@@ -17,7 +17,7 @@
 				</div>
 				<div class="col-xs-10 col-md-11">
 					<p>
-					{{ $reply->body }}
+					{!! nl2br(e($reply->body)) !!}
 					</p>
 				</div>
 			</div>

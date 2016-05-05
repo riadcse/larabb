@@ -15,10 +15,10 @@ Route::get('home', 'ForumController@index');
 
 Route::get('board/{id}', 'BoardsController@show');
 
-Route::get('topic/{id}', 'TopicsController@show');
-Route::get('board/{board_id}/newtopic', 'TopicsController@create');
-Route::post('board/{board_id}/newtopic', 'TopicsController@store');
+Route::get('topic/create', 'TopicsController@create');
+Route::post('topic/create', 'TopicsController@store');
 Route::get('topic/{id}/edit', 'TopicsController@edit');
 Route::post('topic/{id}/edit', 'TopicsController@store');
+Route::get('topic/{id}', 'TopicsController@show');
 
 Route::get('user/{id}', 'UsersController@show');
