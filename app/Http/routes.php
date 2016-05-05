@@ -11,12 +11,13 @@
 Route::auth();
 
 Route::get('/', 'ForumController@index');
+Route::get('home', 'ForumController@index');
 
 Route::get('board/{id}', 'BoardsController@show');
 
 Route::get('topic/{id}', 'TopicsController@show');
-Route::get('topic/new/board/{board_id}', 'TopicsController@create');
-Route::post('topic/new/board/{board_id}', 'TopicsController@store');
+Route::get('board/{board_id}/newtopic', 'TopicsController@create');
+Route::post('board/{board_id}/newtopic', 'TopicsController@store');
 Route::get('topic/{id}/edit', 'TopicsController@edit');
 Route::post('topic/{id}/edit', 'TopicsController@store');
 
