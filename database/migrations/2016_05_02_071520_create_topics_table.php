@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBoardTables extends Migration
+class CreateTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,13 @@ class CreateBoardTables extends Migration
      */
     public function up()
     {
-        Schema::create('boards', function(Blueprint $table) {
+        Schema::create('topics', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 100);
-            $table->text('description');
-            $table->integer('id_cat');
+            $table->string('slug')->index();
+            $table->integer('board_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
+            $table->string('title');
+            $table->text('body');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateBoardTables extends Migration
      */
     public function down()
     {
-        Schema::drop('boards');
+        Schema::drop('topics');
     }
 }

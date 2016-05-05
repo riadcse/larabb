@@ -1,15 +1,34 @@
 <?php
+/**
+ * This file is part of LaraBB.
+ *
+ * (c) Jason Clemons <hello@jasonclemons.me>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * that was distributed with this source code.
+ */
 
-namespace Larabb\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use Larabb\User;
+use App\User;
 use Validator;
-use Larabb\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Registration & Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users, as well as the
+    | authentication of existing users. By default, this controller uses
+    | a simple trait to add these behaviors. Why don't you explore it?
+    |
+    */
+
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
@@ -18,13 +37,6 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-
-    /**
-     * Protect the admin dashboard from non-admins!
-     * 
-     * @var string
-     */
-    protected $guard = 'admin';
 
     /**
      * Create a new authentication controller instance.

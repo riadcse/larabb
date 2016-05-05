@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTopicsTable extends Migration
+class CreateRepliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,11 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function(Blueprint $table) {
+        Schema::create('replies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('subject', 150);
+            $table->integer('topic_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
             $table->text('body');
-            $table->integer('id_author');
-            $table->integer('id_board');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('topics');
+        Schema::drop('replies');
     }
 }

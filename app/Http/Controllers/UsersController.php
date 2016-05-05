@@ -8,9 +8,13 @@
  * that was distributed with this source code.
  */
 
-namespace App\Events;
+namespace App\Http\Controllers;
 
-abstract class Event
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
+class UsersController extends Controller
 {
     //
 }

@@ -1,6 +1,14 @@
 <?php
+/**
+ * This file is part of LaraBB.
+ *
+ * (c) Jason Clemons <hello@jasonclemons.me>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * that was distributed with this source code.
+ */
 
-namespace Larabb\Console\Commands;
+namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

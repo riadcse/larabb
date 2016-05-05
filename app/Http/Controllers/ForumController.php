@@ -1,94 +1,57 @@
 <?php
+/**
+ * This file is part of LaraBB.
+ *
+ * (c) Jason Clemons <hello@jasonclemons.me>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * that was distributed with this source code.
+ */
 
-namespace Larabb\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Larabb\Http\Requests;
-
-use Larabb\Forum;
-use Larabb\Topic;
-use Larabb\Reply;
+use App\Http\Requests;
+use App\Board;
+use App\Category;
 
 class ForumController extends Controller
 {
-    /**
-     * @var Topic 
-     */
-    protected $topics;
-    
-    /**
-     * Initialize the forum
-     */
-    public function __construct(Topic $topics)
-    {
-        $this->middleware('auth');
-        $this->topics = $topics;
-    }
+	/**
+	 *
+	 */
+	public function index()
+	{
+		$categories = $this->getCategories();
 
-    /**
-     * Show the forum index
-     * 
-     * @return \Illuminate\Http\Response 
-     */
-    public function index()
-    {
-        $topics = $this->topics->latest()->paginate(25);
-        return view('forum.index', compact('topics'));
-    }
+		// Loop through each category and get its boards
+		foreach ($categories as $category) {
+			$category->boards = $this->getBoards($category->id);
+		}
 
-    /**
-     * Show the create thread view
-     * 
-     * @return \Illuminate\Http\Response 
-     */
-    public function create()
-    {
-        return view('forum.create');
-    }
+		return view('forum.index', compact('categories'));	
+	}
 
-    /**
-     * Show the requested thread or board
-     * 
-     * @param Forum $forum
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Forum $forum)
-    {
-        return view('forum.show', compact('forum'));
-    }
+	/**
+	 * Return an object of all boards, or boards from a given category
+	 *
+	 * @param int $category_id
+	 * @return App\Board
+	 */
+	public function getBoards($category_id = null)
+	{
+		return Board::where('category_id', '=', $category_id)->get();
+	}
 
-    /**
-     * Store a new resource
-     * 
-     * @param Request $request
-     * @return \Illuminate\Http\Response 
-     */
-    public function store(Request $request)
-    {
-        (new Forum($request->all))->save();
-        return redirect(); // redirect to board/topic
-    }
+	/**
+	 * Return an object of all categories
+	 *
+	 * @return App\Category
+	 */
+	public function getCategories()
+	{
+		return Category::all();
+	}
 
-    /**
-     * Update a resource
-     * 
-     * @param Topic $thread
-     * @return \Illuminate\Http\Response 
-     */
-    public function update(Topic $thread)
-    {
-        (new Topic($thread))->save();
-        return redirect(); // redirect to board/topic
-    }
-
-    /**
-     * Destroy the given resource
-     * 
-     * @param $id
-     */
-    public function destroy($id)
-    {
-        
-    }
 }

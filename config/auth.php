@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Larabb\User::class,
+            'model' => App\User::class,
         ],
 
         // 'users' => [

@@ -1,6 +1,14 @@
 <?php
+/**
+ * This file is part of LaraBB.
+ *
+ * (c) Jason Clemons <hello@jasonclemons.me>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * that was distributed with this source code.
+ */
 
-namespace Larabb\Exceptions;
+namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Validation\ValidationException;

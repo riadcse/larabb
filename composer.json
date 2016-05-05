@@ -1,7 +1,7 @@
 {
     "name": "larabb/larabb",
-    "description": "Delightfully simple forum software built with Laravel",
-    "keywords": ["forum", "bulletin board"],
+    "description": "A simple forum built with Laravel",
+    "keywords": ["forum", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -20,7 +20,7 @@
             "database"
         ],
         "psr-4": {
-            "Larabb\\": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {

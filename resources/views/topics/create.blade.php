@@ -1,17 +1,19 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <form method="post">
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" class="form-control" id="subject" placeholder="Subject">
-            </div>
-            <div class="form-group">
-                <label for="body">Body</label>
-                <textarea class="form-control" id="body">Body...</textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-@endsection
+<div class="container">
+	<form action="/topic/create" method="post">
+		{{ csrf_field() }}
+
+		<div class="form-group">
+			<label for="title" class="control-label">Title</label>
+			<input type="text" name="title" id="topic-title" class="form-control" placeholder="Title...">
+		</div>
+		<div class="form-group">
+			<label for="body" class="control-label">Body</label>
+			<textarea name="body" class="form-control" placeholder="Body..."></textarea>
+		</div>
+		<button class="btn btn-primary" type="submit">Post</button>
+	</form>
+</div>
+@stop

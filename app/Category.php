@@ -8,9 +8,16 @@
  * that was distributed with this source code.
  */
 
-namespace App\Events;
+namespace App;
 
-abstract class Event
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
 {
-    //
+	protected $table = 'categories';
+	
+    public function boards()
+    {
+    	return $this->hasMany('App\Board');
+    }
 }

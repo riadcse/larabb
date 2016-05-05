@@ -1,6 +1,6 @@
 <?php
 
-namespace Larabb\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
