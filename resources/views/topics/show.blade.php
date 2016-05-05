@@ -7,17 +7,22 @@
 		<h2>{{ $topic->title }}</h2>
 		<p>{{ $topic->body }}</p>
 	    <hr>
-	@if (empty($topic->replies))
-	    <div class="container">
-	    	No replies yet...
-	    </div>
-	@else
-	   	@foreach ($topic->replies as $reply)
-		<div class="well">
-			{{ $reply->body }}
+	@foreach ($topic->replies as $reply)
+		<div class="well well-md">
+			<div class="row">
+				<div class="col-xs-2 col-md-1">
+					<a href="{{ url('/user/' . $reply->user_id) }}" class="thumbnail">
+						<img src="http://placehold.it/100x100" alt="...">
+					</a>
+				</div>
+				<div class="col-xs-10 col-md-11">
+					<p>
+					{{ $reply->body }}
+					</p>
+				</div>
+			</div>
 		</div>
-	   	@endforeach
-	@endif
+	@endforeach
 		<hr>
 		<form action="/reply/{{ $topic->id }}/create" method="post">
 			<textarea class="form-control" rows="3" name="body">Reply to this topic...</textarea>

@@ -24,7 +24,7 @@ class BoardsController extends Controller
     public function show($id)
     {
     	$board = Board::find($id);
-    	$topics = Topic::all();
+    	$topics = Topic::where('board_id', '=', $id)->paginate(15);
 
     	return view('forum.show', compact(['board', 'topics']));
     }

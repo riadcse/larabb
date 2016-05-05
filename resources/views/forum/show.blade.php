@@ -17,5 +17,6 @@
 			</li>
 		@endforeach
 		</ul>
+		{!! $topics->links() !!}
 	</div>
 @stop
