@@ -16,6 +16,7 @@ use App\Http\Controllers\Controller;
 
 use App\Topic;
 use App\Reply;
+use App\User;
 
 class TopicsController extends Controller
 {
@@ -26,7 +27,7 @@ class TopicsController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth', ['except' => ['show']]);
     }
 
     /**
@@ -70,6 +71,7 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
+        $topic = 
         $this->validate($request, [
             'board_id' => 'required|integer',
             'title' => 'required|max:150',
@@ -77,20 +79,22 @@ class TopicsController extends Controller
         ]);
 
         $request->user()->topics()->create([
-            'board_id' => $request->board,
+            'board_id' => $request->board_id,
             'title' => $request->title,
             'body' => $request->body
         ]);
 
-        return redirect('/');
+        return redirect(url('/topic/' . $request->id));
     }
 
     /**
      * Show the 'edit topic' view
      *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Request
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         return view('topics.edit');
     }

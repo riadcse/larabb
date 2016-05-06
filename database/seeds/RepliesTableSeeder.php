@@ -11,6 +11,6 @@ class RepliesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Reply::class, 50000)->create();
+        factory(App\Reply::class, 500)->create();
     }
 }
