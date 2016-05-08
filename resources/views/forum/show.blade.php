@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<a href="{{ url('/topic/create?board=' . $board->id) }}" class="btn btn-success pull-right">
+				<a href="{{ url('/topic/create?board=' . $board->id) }}" class="btn btn-primary btn-sm pull-right">
 					<i class="fa fa-pencil"></i> Create Topic
 				</a>
 			</div>
