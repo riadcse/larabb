@@ -29,7 +29,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    LaraBB
                 </a>
             </div>
 
@@ -37,7 +37,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ url('/recent') }}">Recent Posts</a></li>
+                    <li><a href="{{ url('/unread') }}">Unread Posts</a></li>
+                    <li><a href="{{ url('/unread/replies') }}">Unread Replies</a></li>
+                    <li><a href="{{ url('/members') }}">Members</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
