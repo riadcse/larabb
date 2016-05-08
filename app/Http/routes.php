@@ -10,17 +10,41 @@
 
 Route::auth();
 
+/**
+ * ForumController GET
+ */
 Route::get('/', 'ForumController@index');
 Route::get('home', 'ForumController@index');
 
+/**
+ * BoardsController GET
+ */
 Route::get('board/{id}', 'BoardsController@show');
 
-Route::get('topic/create', 'TopicsController@create');
-Route::post('topic/create', 'TopicsController@store');
+/**
+ * TopicsController GET
+ */
+Route::get('topic/{id}/create', 'TopicsController@create');
 Route::get('topic/{id}/edit', 'TopicsController@edit');
+Route::get('topic/{id}/reply', 'RepliesController@create');
+Route::get('topic/{id}/report', 'TopicsController@report');
+Route::get('topic/{id}/ignore', 'TopicsController@ignore');
+Route::get('topic/{id}/subscribe', 'TopicsController@subscribe');
+
+/**
+ * TopicsController POST
+ */
+Route::post('topic/{id}/create', 'TopicsController@store');
 Route::post('topic/{id}/edit', 'TopicsController@store');
-Route::get('topic/reply', 'RepliesController@create');
-Route::post('topic/reply', 'RepliesController@store');
+Route::post('topic/{id}/reply', 'RepliesController@store');
+
+/**
+ * TopicsController GET
+ * This is here because reasons
+ */
 Route::get('topic/{id}', 'TopicsController@show');
 
-Route::get('user/{id}', 'UsersController@show');
+/**
+ * UsersController GET
+ */
+Route::get('profile/{id}', 'UsersController@show');

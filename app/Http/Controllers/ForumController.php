@@ -11,27 +11,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Repositories\CategoryRepository;
+use App\Category;
 
 class ForumController extends Controller
 {
-	/**
-	 * The database table name
-	 *
-	 * @var $categories
-	 */
-	protected $categories;
-
-	/**
-	 * Create the ForumController instance
-	 *
-	 * @return void
-	 */
-	public function __construct(CategoryRepository $categories)
-	{
-		$this->categories = $categories;
-	}
-
 	/**
 	 * Show the main index page of the forum
 	 *
@@ -39,9 +22,9 @@ class ForumController extends Controller
 	 */
 	public function index()
 	{
-		return view('forum.index', [
-			'categories' => $this->categories->getCategories()
-		]);
+		$categories = Category::all();
+
+		return view('forum.index', compact('categories'));
 	}
 
 }

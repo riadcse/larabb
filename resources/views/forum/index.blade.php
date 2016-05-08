@@ -19,11 +19,11 @@
 							<th>Board Name</th>
 							<th class="text-right">Topics</th>
 							<th class="text-right">Replies</th>
-							<th class="hidden-xs">Latest Info</th>
+							<th class="hidden-xs">Latest Post</th>
 						</tr>
 					</thead>
 					<tbody>
-				@foreach ($category->boards as $board)
+					@foreach ($category->boards as $board)
 						<tr>
 							<td class="hidden-xs">
 								<i class="fa fa-commenting-o fa-4x"></i>
@@ -36,13 +36,13 @@
 							<td class="col-md-1 col-sm-1 text-right"><span class="badge">xx</span></td>
 							<td class="col-md-4 col-sm-4 hidden-xs">
 								<div>
-									<a href="{{ url('topic/8#reply-8') }}">Some Topic Title</a><br />
+									<a href="{{ url('topic/8#r8') }}">Some Topic Title</a><br />
 									<i class="fa fa-clock-o"></i> 05-07-2016 22:44<br />
 									<i class="fa fa-user"></i> <a href="{{ url('/profile/someuser') }}">SomeUser</a>
 								</div>
 							</td>
 						</tr>
-				@endforeach
+					@endforeach
 					</tbody>
 				</table>
 			</div>

@@ -36,11 +36,13 @@
 								<li><a href="{{ url('/topic/' . $topic->id . '/subscribe') }}"><i class="fa fa-bell-o"></i> Subscribe</a></li>
 								<li><a href="{{ url('/topic/' . $topic->id . '/report') }}"><i class="fa fa-flag"></i> Report</a></li>
 								<li><a href="{{ url('/topic/' . $topic->id . '/ignore') }}"><i class="fa fa-minus-circle"></i> Ignore</a></li>
+								<li><a href="{{ url('/topic/' . $topic->id) }}"><i class="fa fa-link"></i> Permalink</a></li>
 							</ul>
 						</div>
 						<a class="btn btn-default btn-xs hidden-sm hidden-xs" href="{{ url('/topic/' . $topic->id . '/subscribe') }}"><i class="fa fa-bell-o"></i> Subscribe</a>
 						<a class="btn btn-default btn-xs hidden-sm hidden-xs" href="{{ url('/topic/' . $topic->id . '/report') }}"><i class="fa fa-flag"></i> Report</a>
 						<a class="btn btn-default btn-xs hidden-sm hidden-xs" href="{{ url('/topic/' . $topic->id . '/ignore') }}"><i class="fa fa-minus-circle"></i> Ignore</a>
+						<a class="btn btn-default btn-xs hidden-sm hidden-xs" href="{{ url('/topic/' . $topic->id) }}"><i class="fa fa-link"></i> Permalink</a>
 					</div>
 				</div>
 			</div>
@@ -125,11 +127,12 @@
 							<ul class="dropdown-menu dropdown-menu-right" role="menu">
 								<li><a href="{{ url('/topic/' . $topic->id . '/report') }}"><i class="fa fa-flag"></i> Report</a></li>
 								<li><a href="{{ url('/topic/' . $topic->id . '/ignore') }}"><i class="fa fa-minus-circle"></i> Ignore</a></li>
+								<li><a href="{{ url('/topic/' . $topic->id . '#r' . $reply->id) }}"><i class="fa fa-link"></i> Permalink</a></li>
 							</ul>
 						</div>
 						<a class="btn btn-default btn-xs hidden-sm hidden-xs" href="{{ url('/topic/' . $topic->id . '/report') }}"><i class="fa fa-flag"></i> Report</a>
 						<a class="btn btn-default btn-xs hidden-sm hidden-xs" href="{{ url('/topic/' . $topic->id . '/ignore') }}"><i class="fa fa-minus-circle"></i> Ignore</a>
-						<a href="{{ url('/topic/' . $topic->id . '#r' . $reply->id) }}">#{{ $reply->id }}</a>
+						<a class="btn btn-default btn-xs hidden-sm hidden-xs" href="{{ url('/topic/' . $topic->id . '#r' . $reply->id) }}"><i class="fa fa-link"></i> Permalink</a>
 					</div>
 				</div>
 			</div>

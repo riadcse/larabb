@@ -32,7 +32,7 @@
 							</tr>
 						</thead>
 						<tbody>
-						@foreach ($topics as $topic)
+						@foreach ($board->topics as $topic)
 							<tr>
 								<td class="hidden-xs">
 								</td>
@@ -40,7 +40,7 @@
 									<div>
 										<a href="{{ url('/topic/' . $topic->id) }}">{{ $topic->title }}</a>
 									</div>
-									<small class="text-muted">Author: <a href="{{ url('/profile/someuser') }}">SomeUser</a></small>
+									<small class="text-muted">Author: <a href="{{ url('/profile/' . strtolower($topic->user->name)) }}">{{ $topic->user->name }}</a></small>
 								</td>
 								<td class="col-md-1 text-right"><span class="badge">xx</span></td>
 								<td class="col-md-1 text-right"><span class="badge">xx</span></td>
