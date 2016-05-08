@@ -6,12 +6,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<a href="{{ url('/topic/create?board=' . $board->id) }}" class="btn btn-primary btn-sm pull-right">
+				<a href="{{ url('/board/' . $board->id . '/create') }}" class="btn btn-primary btn-sm pull-right">
 					<i class="fa fa-pencil"></i> Create Topic
 				</a>
 			</div>
 		</div>
-		<div class="clearfix">&nbsp;</div>
+		<div class="row">
+			<div class="col-md-9 col-sm-9 col-xs-9">
+				<h4 class="text-truncated">{{ $board->name }}</h4>
+			</div>
+		</div>
+		<div class="clearfix top-border">&nbsp;</div>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">

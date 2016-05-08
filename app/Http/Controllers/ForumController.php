@@ -16,12 +16,16 @@ use App\Repositories\CategoryRepository;
 class ForumController extends Controller
 {
 	/**
+	 * The database table name
 	 *
+	 * @var $categories
 	 */
 	protected $categories;
 
 	/**
+	 * Create the ForumController instance
 	 *
+	 * @return void
 	 */
 	public function __construct(CategoryRepository $categories)
 	{
@@ -29,7 +33,9 @@ class ForumController extends Controller
 	}
 
 	/**
+	 * Show the main index page of the forum
 	 *
+	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{

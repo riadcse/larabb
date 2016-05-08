@@ -26,7 +26,7 @@
 				@foreach ($category->boards as $board)
 						<tr>
 							<td class="hidden-xs">
-								<i class="fa fa-commenting fa-2x"></i>
+								<i class="fa fa-commenting-o fa-4x"></i>
 							</td>
 							<td class="col-md-6 col-sm-6">
 								<strong><a href="{{ url('/board/' . $board->id) }}">{{ $board->name }}</a></strong>

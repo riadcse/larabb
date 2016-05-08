@@ -58,10 +58,9 @@
                                 <li><a href="{{ url('/profile') }}"><i class="fa fa-btn fa-user"></i> Profile</a></li>
                                 <li><a href="{{ url('/profile/settings') }} "><i class="fa fa-btn fa-cog"></i> Settings</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Logout</a></li>
-                                @endelse
+                                @endif
                             </ul>
                         </li>
-                    @endif
                 </ul>
             </div>
         </div>

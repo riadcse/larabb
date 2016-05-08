@@ -25,9 +25,10 @@ class TopicsController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Request $request)
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->request = $request;
     }
 
     /**
@@ -37,21 +38,11 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        $topics = Topic::all();
+        $topics = Topic::with('topic_id', 'user_id');
         
         return view('topics.index', compact('topics'));
     }
     
-    /**
-     * Show the 'create topic' view
-     *
-     * @return \Illuminate\Request
-     */
-    public function create(Request $request)
-    {
-        return view('topics.create');
-    }
-
     /**
      * Show a given topic
      *
@@ -65,11 +56,21 @@ class TopicsController extends Controller
     }
 
     /**
+     * Show the 'create topic' view
+     *
+     * @return \Illuminate\Request
+     */
+    public function create()
+    {
+        return view('topics.create');
+    }
+
+    /**
      * Store the new topic
      *
      * @return \Illuminate\Request
      */
-    public function store(Request $request)
+    public function store()
     {
         $this->validate($request, [
             'board_id' => 'required|integer',
@@ -90,12 +91,22 @@ class TopicsController extends Controller
      * Show the 'edit topic' view
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $id
      * @return \Illuminate\Request
      */
-    public function edit(Request $request, $id)
+    public function edit(Topic $topic)
     {
         return view('topics.edit');
+    }
+
+    /**
+     * Update an existing topic
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Request
+     */
+    public function update(Request $request)
+    {
+        return redirect(url('/topic/' . $request->id));
     }
 
     /**

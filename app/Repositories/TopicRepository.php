@@ -11,17 +11,17 @@
 namespace App\Repositories;
 
 use App\Board;
-use App\Category;
+use App\Topic;
 
-class BoardRepository
+class TopicRepository
 {
 	/**
-	 * Return an object of all boards in a given category
+	 * Return an object of all topics in a given board
 	 *
-	 * @return App\Board
+	 * @return App\Topic
 	 */
-	public function getBoards($category_id)
+	public function getTopics($board_id)
 	{
-		return Board::where('category_id', '=', $category_id);
+		return Topic::where('board_id', '=', $board_id);
 	}
 }
