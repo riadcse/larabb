@@ -19,6 +19,8 @@ Route::get('topic/create', 'TopicsController@create');
 Route::post('topic/create', 'TopicsController@store');
 Route::get('topic/{id}/edit', 'TopicsController@edit');
 Route::post('topic/{id}/edit', 'TopicsController@store');
+Route::get('topic/reply', 'RepliesController@create');
+Route::post('topic/reply', 'RepliesController@store');
 Route::get('topic/{id}', 'TopicsController@show');
 
 Route::get('user/{id}', 'UsersController@show');

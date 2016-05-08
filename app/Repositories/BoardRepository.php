@@ -8,23 +8,19 @@
  * that was distributed with this source code.
  */
 
-namespace App;
+namespace App\Repositories;
 
 use App\Board;
-use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class BoardRepository
 {
 	/**
+	 * Return an object of all categories
 	 *
+	 * @return App\Board
 	 */
-	protected $table = 'categories';
-	
-	/**
-	 *
-	 */
-    public function boards()
-    {
-    	return $this->hasMany(Board::class);
-    }
+	public function getBoards($category_id)
+	{
+		return Board::where('category_id', '=', $category_id);
+	}
 }

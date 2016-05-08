@@ -10,48 +10,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\Board;
-use App\Category;
+use App\Repositories\CategoryRepository;
 
 class ForumController extends Controller
 {
 	/**
 	 *
 	 */
+	protected $categories;
+
+	/**
+	 *
+	 */
+	public function __construct(CategoryRepository $categories)
+	{
+		$this->categories = $categories;
+	}
+
+	/**
+	 *
+	 */
 	public function index()
 	{
-		$categories = $this->getCategories();
-
-		// Loop through each category and get its boards
-		foreach ($categories as $category) {
-			$category->boards = $this->getBoards($category->id);
-		}
-
-		return view('forum.index', compact('categories'));	
-	}
-
-	/**
-	 * Return an object of all boards, or boards from a given category
-	 *
-	 * @param int $category_id
-	 * @return App\Board
-	 */
-	public function getBoards($category_id = null)
-	{
-		return Board::where('category_id', '=', $category_id)->get();
-	}
-
-	/**
-	 * Return an object of all categories
-	 *
-	 * @return App\Category
-	 */
-	public function getCategories()
-	{
-		return Category::all();
+		return view('forum.index', [
+			'categories' => $this->categories->getCategories()
+		]);
 	}
 
 }

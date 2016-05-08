@@ -10,6 +10,8 @@
 
 namespace App;
 
+use App\Topic;
+use App\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Board extends Model
@@ -19,11 +21,14 @@ class Board extends Model
 	 */
     public function topics()
     {
-    	return $this->hasMany('App\Topic');
+    	return $this->hasMany(Topic::class);
     }
 
+    /**
+     *
+     */
     public function category()
     {
-    	return $this->belongsTo('App\Category');
+    	return $this->belongsTo(Category::class);
     }
 }

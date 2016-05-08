@@ -27,7 +27,7 @@ class TopicsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
     /**
@@ -71,7 +71,6 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
-        $topic = 
         $this->validate($request, [
             'board_id' => 'required|integer',
             'title' => 'required|max:150',
