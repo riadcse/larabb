@@ -68,6 +68,32 @@
 
     @yield('content')
 
+    <div id="footer">
+        <div class="container">
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-md-5 hidden-xs">
+                    <p class="text-center">
+                        <small><a href="http://larabb.org">Powered by LaraBB</a></small><br />
+                        <small>LaraBB v0.1.0 Alpha</small>
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <p class="text-center">
+                        <a href="{{ url('feed/rss') }}" title="RSS 2.0"><i class="fa fa-rss fa-2x text-info"></i></a>
+                        <a href="{{ url('feed/atom') }}" title="Atom Feed"><i class="fa fa-rss fa-2x text-warning"></i></a>
+                    </p>
+                </div>
+                <div class="col-md-5 hidden-xs">
+                    <p class="text-center">
+                        <small><a href="http://larabb.org/themes">LaraBB Theme</a></small><br />
+                        <small>Developed by <a href="https://jasonclemons.me">Jason Clemons</a></small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
