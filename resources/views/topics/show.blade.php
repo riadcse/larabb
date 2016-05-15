@@ -90,26 +90,26 @@
 							<span class="hidden-md hidden-lg"><i class="fa fa-calendar"></i> </span>
 							<small><span class="hidden-sm hidden-xs">Posted:</span> {{ $topic->created_at }}</small>
 						</div>
-						<div class="col-md-10 col-sm-9 col-xs-12">
-							<div class="clearfix">&nbsp;</div>
-							<div class="content-body">
-								<p>{!! nl2br(e($topic->body)) !!}</p>
-							</div>
-							<div class="clearfix">&nbsp;</div>
-						</div>
-						@if (count($topic->user->signature) > 0)
-						<div class="row">
-							<div class="clearfix">&nbsp;</div>
-							<div class="col-md-12 hidden-xs">
-								<div class="clearfix top-border">&nbsp;</div>
-								<div class="text-muted signature">
-									<p></p>
-								</div>
-							</div>
-							<div class="clearfix">&nbsp;</div>
-						</div>
-						@endif
 					</div>
+					<div class="col-md-10 col-sm-9 col-xs-12">
+						<div class="clearfix">&nbsp;</div>
+						<div class="content-body">
+							<p>{!! nl2br(e($topic->body)) !!}</p>
+						</div>
+						<div class="clearfix">&nbsp;</div>
+					</div>
+					@if (count($topic->user->signature) > 0)
+					<div class="row">
+						<div class="clearfix">&nbsp;</div>
+						<div class="col-md-12 hidden-xs">
+							<div class="clearfix top-border">&nbsp;</div>
+							<div class="text-muted signature">
+								<p></p>
+							</div>
+						</div>
+						<div class="clearfix">&nbsp;</div>
+					</div>
+					@endif
 				</div>
 			</div>
 		</div>
