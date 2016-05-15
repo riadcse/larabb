@@ -122,6 +122,8 @@ class TopicsController extends Controller
      */
     public function delete($id)
     {
+        Topic::destroy($id);
+        
         return redirect('/');
     }
 }

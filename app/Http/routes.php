@@ -30,6 +30,7 @@ Route::get('topic/{id}/reply', 'RepliesController@create');
 Route::get('topic/{id}/report', 'TopicsController@report');
 Route::get('topic/{id}/ignore', 'TopicsController@ignore');
 Route::get('topic/{id}/subscribe', 'TopicsController@subscribe');
+Route::get('topic/{id}/delete', 'TopicsController@delete');
 
 /**
  * TopicsController POST

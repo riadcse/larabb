@@ -116,7 +116,7 @@
 			</div>
 			<div class="panel-footer clearfix">
 				<div class="pull-right">
-					<a href="{{ url('/topic/' . $topic->id . '/delete') }}" class="btn btn-warning btn-xs"><i class="fa fa-ban"></i> Delete</a>
+					<a href="{{ url('/topic/' . $topic->id . '/delete') }}" class="btn btn-warning btn-xs" onclick="return confirm('Are you sure you want to delete this?');"><i class="fa fa-ban"></i> Delete</a>
 					<a href="{{ url('/topic/' . $topic->id . '/edit') }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a>
 					<a href="{{ url('/topic/' . $topic->id . '/quote') }}" class="btn btn-primary btn-xs"><i class="fa fa-quote-left"></i> Quote</a>
 				</div>
@@ -215,7 +215,7 @@
 			</div>
 			<div class="panel-footer clearfix">
 				<div class="pull-right">
-					<a href="{{ url('/reply/' . $reply->id . '/delete') }}" class="btn btn-warning btn-xs"><i class="fa fa-ban"></i> Delete</a>
+					<a href="{{ url('/reply/' . $reply->id . '/delete') }}" class="btn btn-warning btn-xs" onclick="return confirm('Are you sure you want to delete this?');"><i class="fa fa-ban"></i> Delete</a>
 					<a href="{{ url('/reply/' . $reply->id . '/edit') }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a>
 					<a href="{{ url('/reply/' . $reply->id . '/quote') }}" class="btn btn-primary btn-xs"><i class="fa fa-quote-left"></i> Quote</a>
 				</div>
