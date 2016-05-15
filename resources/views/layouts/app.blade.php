@@ -68,24 +68,25 @@
 
     @yield('content')
 
-    <div id="footer">
+    <div id="footer" class="navbar-default">
         <div class="container">
             <div class="row">&nbsp;</div>
             <div class="row">
                 <div class="col-md-5 hidden-xs">
-                    <p class="text-center">
+                    <p class="text-muted text-center">
                         <small><a href="http://larabb.org">Powered by LaraBB</a></small><br />
                         <small>LaraBB v0.1.0 Alpha</small>
                     </p>
                 </div>
                 <div class="col-md-2">
                     <p class="text-center">
-                        <a href="{{ url('feed/rss') }}" title="RSS 2.0"><i class="fa fa-rss fa-2x text-info"></i></a>
-                        <a href="{{ url('feed/atom') }}" title="Atom Feed"><i class="fa fa-rss fa-2x text-warning"></i></a>
+                        <a href="{{ url('feed/rss') }}" title="RSS 2.0"><i class="fa fa-rss-square fa-2x text-info"></i></a>
+                        &nbsp;
+                        <a href="{{ url('feed/atom') }}" title="Atom Feed"><i class="fa fa-rss-square fa-2x text-warning"></i></a>
                     </p>
                 </div>
                 <div class="col-md-5 hidden-xs">
-                    <p class="text-center">
+                    <p class="text-muted text-center">
                         <small><a href="http://larabb.org/themes">LaraBB Theme</a></small><br />
                         <small>Developed by <a href="https://jasonclemons.me">Jason Clemons</a></small>
                     </p>
