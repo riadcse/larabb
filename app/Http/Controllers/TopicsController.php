@@ -30,8 +30,8 @@ class TopicsController extends Controller
      */
     public function __construct(Request $request)
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
         $this->request = $request;
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
     /**
