@@ -25,7 +25,7 @@
 		<!-- START: Topic ID: {{ $topic->id }} -->
 		<div class="panel panel-default" id="t{{ $topic->id }}">
 			<div class="panel-heading">
-				<div class="panel-title"><a href="{{ url('/profile/' . strtolower($topic->user->name)) }}">{{ $topic->user->name }}</a>
+				<div class="panel-title">&nbsp;
 					<div class="pull-right">
 						<div class="btn-group hidden-md hidden-lg">
 							<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -56,7 +56,7 @@
 						</div>
 						<div class="col-xs-7">
 							<div class="clearfix">&nbsp;</div>
-							<div>SomeUser</div>
+							<div>{{ $topic->user->name }}</div>
 							<div class="text-muted text-left"><small>Total Posts: 1</small></div>
 							<div class="text-muted text-left"><small>Date Joined: {{ $topic->user->created_at }}</small></div>
 							<div class="clearfix">&nbsp;</div>
@@ -67,6 +67,8 @@
 						<div class="clearfix top-border">&nbsp;</div>
 					</div>
 					<div class="col-md-2 col-sm-3 hidden-xs text-center userblock">
+						<div class="clearfix">&nbsp;</div>
+						<a href="{{ url('/profile/' . strtolower($topic->user->name)) }}">{{ $topic->user->name }}</a>
 						<div class="clearfix">&nbsp;</div>
 						<img class="img-thumbnail avatar" src="//placehold.it/100x100" alt="Avatar" />
 						<div class="push_bottom_5"></div>
@@ -104,7 +106,7 @@
 						<div class="col-md-12 hidden-xs">
 							<div class="clearfix top-border">&nbsp;</div>
 							<div class="text-muted signature">
-								<p></p>
+								<p>{{ $topic->user->signature }}</p>
 							</div>
 						</div>
 						<div class="clearfix">&nbsp;</div>
@@ -112,12 +114,19 @@
 					@endif
 				</div>
 			</div>
+			<div class="panel-footer clearfix">
+				<div class="pull-right">
+					<a href="{{ url('/topic/' . $topic->id . '/delete') }}" class="btn btn-warning btn-xs"><i class="fa fa-ban"></i> Delete</a>
+					<a href="{{ url('/topic/' . $topic->id . '/edit') }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a>
+					<a href="{{ url('/topic/' . $topic->id . '/quote') }}" class="btn btn-primary btn-xs"><i class="fa fa-quote-left"></i> Quote</a>
+				</div>
+			</div>
 		</div>
 
 		@foreach ($topic->replies as $reply)
 		<div class="panel panel-default" id="r{{ $reply->id }}">
 			<div class="panel-heading">
-				<div class="panel-title"><a href="{{ url('/profile/' . strtolower($reply->user->name)) }}">{{ $reply->user->name }}</a>
+				<div class="panel-title">&nbsp;
 					<div class="pull-right">
 						<div class="btn-group hidden-md hidden-lg">
 							<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -146,7 +155,7 @@
 						</div>
 						<div class="col-xs-7">
 							<div class="clearfix">&nbsp;</div>
-							<div>SomeUser</div>
+							<div>{{ $reply->user->name }}</div>
 							<div class="text-muted text-left"><small>Total Posts: 1</small></div>
 							<div class="text-muted text-left"><small>Date Joined: {{ $reply->user->created_at }}</small></div>
 							<div class="clearfix">&nbsp;</div>
@@ -157,6 +166,8 @@
 						<div class="clearfix top-border">&nbsp;</div>
 					</div>
 					<div class="col-md-2 col-sm-3 hidden-xs text-center userblock">
+						<div class="clearfix">&nbsp;</div>
+						<a href="{{ url('/profile/' . strtolower($reply->user->name)) }}">{{ $reply->user->name }}</a>
 						<div class="clearfix">&nbsp;</div>
 						<img class="img-thumbnail avatar" src="//placehold.it/100x100" alt="Avatar" />
 						<div class="push_bottom_5"></div>
@@ -201,10 +212,12 @@
 						@endif
 					</div>
 				</div>
-				<div class="panel-footer clearfix">
-					<div class="pull-right">
-						<button type="button" class="btn btn-primary btn-xs" onclick="">Quote</button>
-					</div>
+			</div>
+			<div class="panel-footer clearfix">
+				<div class="pull-right">
+					<a href="{{ url('/reply/' . $reply->id . '/delete') }}" class="btn btn-warning btn-xs"><i class="fa fa-ban"></i> Delete</a>
+					<a href="{{ url('/reply/' . $reply->id . '/edit') }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Edit</a>
+					<a href="{{ url('/reply/' . $reply->id . '/quote') }}" class="btn btn-primary btn-xs"><i class="fa fa-quote-left"></i> Quote</a>
 				</div>
 			</div>
 		</div>

@@ -89,12 +89,14 @@ class TopicsController extends Controller
     /**
      * Show the 'edit topic' view
      *
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $id
      * @return \Illuminate\Request
      */
     public function edit($id)
     {
-        return view('topics.edit');
+        $topic = Topic::find($id);
+
+        return view('topics.update', compact('topic'));
     }
 
     /**
@@ -105,7 +107,12 @@ class TopicsController extends Controller
      */
     public function update($id)
     {
-        return redirect(url('/topic/' . $this->request->id));
+        $this->request->user()->topics()->update([
+            'title' => $this->request->title,
+            'body' => $this->request->body
+        ]);
+
+        return redirect(url('/topic/' . $id));
     }
 
     /**

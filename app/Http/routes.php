@@ -35,7 +35,7 @@ Route::get('topic/{id}/subscribe', 'TopicsController@subscribe');
  * TopicsController POST
  */
 Route::post('board/{id}/create', 'TopicsController@store');
-Route::post('topic/{id}/edit', 'TopicsController@store');
+Route::post('topic/{id}/update', 'TopicsController@update');
 Route::post('topic/{id}/reply', 'RepliesController@store');
 
 /**
