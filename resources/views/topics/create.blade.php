@@ -13,7 +13,7 @@
 		</ul>
 	</div>
 @endif
-	<form action="{{ url('/topic/create') }}" method="post">
+	<form action="{{ url('/board/' . $board->id . '/create') }}" method="post">
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label for="title" class="control-label">Title</label>
@@ -23,8 +23,7 @@
 			<label for="body" class="control-label">Body</label>
 			<textarea name="body" rows="8" class="form-control" placeholder="Body...">{{ old('body') }}</textarea>
 		</div>
-		<input type="hidden" name="board_id" value="{{ $_GET['board'] }}">
-		<button class="btn btn-success" type="submit"><i class="fa fa-plus"></i> Create Topic</button>
+		<button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-pencil"></i> Create Topic</button>
 	</form>
 </div>
 @stop

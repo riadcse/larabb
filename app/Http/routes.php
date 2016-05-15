@@ -24,7 +24,7 @@ Route::get('board/{id}', 'BoardsController@show');
 /**
  * TopicsController GET
  */
-Route::get('topic/{id}/create', 'TopicsController@create');
+Route::get('board/{id}/create', 'TopicsController@create');
 Route::get('topic/{id}/edit', 'TopicsController@edit');
 Route::get('topic/{id}/reply', 'RepliesController@create');
 Route::get('topic/{id}/report', 'TopicsController@report');
@@ -34,7 +34,7 @@ Route::get('topic/{id}/subscribe', 'TopicsController@subscribe');
 /**
  * TopicsController POST
  */
-Route::post('topic/{id}/create', 'TopicsController@store');
+Route::post('board/{id}/create', 'TopicsController@store');
 Route::post('topic/{id}/edit', 'TopicsController@store');
 Route::post('topic/{id}/reply', 'RepliesController@store');
 

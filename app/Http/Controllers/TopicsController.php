@@ -14,12 +14,15 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Board;
 use App\Topic;
 use App\Reply;
 use App\User;
 
 class TopicsController extends Controller
 {
+    protected $request;
+
     /**
      * Create a new controller instance
      *
@@ -62,7 +65,9 @@ class TopicsController extends Controller
      */
     public function create()
     {
-        return view('topics.create');
+        $board = Board::find($this->request->id);
+
+        return view('topics.create', compact('board'));
     }
 
     /**
@@ -72,19 +77,13 @@ class TopicsController extends Controller
      */
     public function store()
     {
-        $this->validate($request, [
-            'board_id' => 'required|integer',
-            'title' => 'required|max:150',
-            'body' => 'required|max:66000'
+        $this->request->user()->topics()->create([
+            'board_id' => $this->request->id,
+            'title' => $this->request->title,
+            'body' => $this->request->body
         ]);
 
-        $request->user()->topics()->create([
-            'board_id' => $request->board_id,
-            'title' => $request->title,
-            'body' => $request->body
-        ]);
-
-        return redirect(url('/topic/' . $request->id));
+        return redirect(url('/board/' . $this->request->id));
     }
 
     /**
@@ -93,7 +92,7 @@ class TopicsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Request
      */
-    public function edit(Topic $topic)
+    public function edit($id)
     {
         return view('topics.edit');
     }
@@ -104,9 +103,9 @@ class TopicsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Request
      */
-    public function update(Request $request)
+    public function update($id)
     {
-        return redirect(url('/topic/' . $request->id));
+        return redirect(url('/topic/' . $this->request->id));
     }
 
     /**
