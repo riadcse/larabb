@@ -9,9 +9,11 @@
 		<div class="panel-group">
 			<div class="panel panel-default">
 				<div class="panel-heading"><i class="fa fa-folder-open-o fa-fw"></i> {{ $category->name }}</div>
+				@if (!empty($category->description))
 				<div class="panel-body">
 					<div class="hidden-xs"><em>{{ $category->description }}</em></div>
 				</div>
+				@endif
 				<table class="table table-hover">
 					<thead>
 						<tr>
