@@ -2,7 +2,7 @@
 /**
  * This file is part of LaraBB.
  *
- * (c) Jason Clemons <hello@jasonclemons.me>
+ * (c) Jason Clemons <jason@larabb.org>
  *
  * For the full copyright and license information, please view the LICENSE
  * that was distributed with this source code.
