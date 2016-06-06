@@ -52,3 +52,4 @@ Route::get('profile/{id}', 'UsersController@show');
 Route::get('profile/settings', 'UsersController@settings');
 Route::get('profile/{id}/topics', 'UsersController@showTopics');
 Route::get('profile/{id}/replies', 'UsersController@showReplies');
+Route::get('members', 'UsersController@index');
